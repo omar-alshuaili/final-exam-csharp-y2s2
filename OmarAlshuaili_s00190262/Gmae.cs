@@ -15,7 +15,10 @@ namespace OmarAlshuaili_s00190262
         public string Platform { get; set; }
         public decimal Price { get; set; }
 
-      
+        public Game()
+        {
+
+        }
 
         public Game(string Name,string Platform, int CriticScore, decimal Price ,string Description, string GameImage = "")
         {
@@ -26,10 +29,11 @@ namespace OmarAlshuaili_s00190262
             Price = this.Price;
             GameImage = this.Game_Image;
 
+        }
 
-
-
-
+        public void DecreasePrice(decimal decreasedPrice)
+        {
+            Price -= decreasedPrice;
         }
 
 
