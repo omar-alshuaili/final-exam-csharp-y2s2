@@ -5,12 +5,12 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:OmarAlshuaili_s00190262"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="600" Width="800" Loaded="Window_Loaded">
     <Window.Resources>
         <DataTemplate x:Key="listbox" >
-            <StackPanel>
-                <TextBlock Text="{Binding Image}"></TextBlock>
-                <Image Source="{Binding MetacriticSocre }"></Image>
+            <StackPanel Orientation="Horizontal" Margin="0 20">
+                <TextBlock VerticalAlignment="Center" Margin="0 0 50 0" FontSize="20" Text="{Binding Score }"></TextBlock>
+                <Image Source="{Binding image  }" Width="100"></Image>
             </StackPanel>
         </DataTemplate>
     </Window.Resources>
@@ -23,6 +23,13 @@
             <RowDefinition/>
             <RowDefinition/>
         </Grid.RowDefinitions>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0 40 0 0" >
+            <RadioButton Content="All" Margin="0 0 20 0"/>
+            <RadioButton Content="PS" Margin="0 0 20 0"/>
+            <RadioButton Content="Xbox" Margin="0 0 20 0"/>
+            <RadioButton Content="PC"/>
+        </StackPanel>
+    
         <ListBox  x:Name="gameListBox" Grid.Column="0" Grid.Row="0" Grid.RowSpan="2" Width="250" Height="350" ItemTemplate="{ StaticResource listbox }" ></ListBox>
         <TextBlock FontSize="20"  x:Name="priceTBL" Grid.Column="1" Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center"> </TextBlock>
     </Grid>

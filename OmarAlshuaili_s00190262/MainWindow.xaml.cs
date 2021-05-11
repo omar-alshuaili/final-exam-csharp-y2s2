@@ -20,9 +20,21 @@ namespace OmarAlshuaili_s00190262
     /// </summary>
     public partial class MainWindow : Window
     {
+        GameData db = new GameData();
         public MainWindow()
         {
             InitializeComponent();
+        }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            var q = from g in db.games
+                    select new
+                    {
+                        Score = g.MetacriticScore,
+                        image = g.Game_Image
+                    };
+            gameListBox.ItemsSource = q.ToList();
         }
     }
 }
