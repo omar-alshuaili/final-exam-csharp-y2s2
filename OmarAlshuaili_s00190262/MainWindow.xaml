@@ -6,7 +6,24 @@
         xmlns:local="clr-namespace:OmarAlshuaili_s00190262"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
+    <Window.Resources>
+        <DataTemplate x:Key="listbox" >
+            <StackPanel>
+                <TextBlock Text="{Binding Image}"></TextBlock>
+                <Image Source="{Binding MetacriticSocre }"></Image>
+            </StackPanel>
+        </DataTemplate>
+    </Window.Resources>
     <Grid>
-        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <ListBox  x:Name="gameListBox" Grid.Column="0" Grid.Row="0" Grid.RowSpan="2" Width="250" Height="350" ItemTemplate="{ StaticResource listbox }" ></ListBox>
+        <TextBlock FontSize="20"  x:Name="priceTBL" Grid.Column="1" Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center"> </TextBlock>
     </Grid>
 </Window>

@@ -13,14 +13,10 @@ namespace test
             Game game = new Game();
             decimal expected = 45;
 
-
-
             //ACT
             game.Price = 60;
             game.DecreasePrice(15);
             
-
-
             //ASSERT
             Assert.AreEqual(expected, game.Price);
         }
