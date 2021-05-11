@@ -5,12 +5,12 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:OmarAlshuaili_s00190262"
         mc:Ignorable="d"
-        Title="MainWindow" Height="600" Width="800" Loaded="Window_Loaded">
+        Title="MainWindow" Height="450" Width="900" Loaded="Window_Loaded">
     <Window.Resources>
         <DataTemplate x:Key="listbox" >
             <StackPanel Orientation="Horizontal" Margin="0 20">
-                <TextBlock VerticalAlignment="Center" Margin="0 0 50 0" FontSize="20" Text="{Binding Score }"></TextBlock>
-                <Image Source="{Binding image  }" Width="100"></Image>
+                <TextBlock VerticalAlignment="Center" Margin="0 0 50 0" FontSize="20" Text="{Binding Path =MetacriticScore }"></TextBlock>
+                <Image Source="{Binding Path=Game_Image  }" Width="100"></Image>
             </StackPanel>
         </DataTemplate>
     </Window.Resources>
@@ -20,17 +20,25 @@
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition/>
+            <RowDefinition Height="0.5*"/>
             <RowDefinition/>
         </Grid.RowDefinitions>
-        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0 40 0 0" >
-            <RadioButton Content="All" Margin="0 0 20 0"/>
-            <RadioButton Content="PS" Margin="0 0 20 0"/>
-            <RadioButton Content="Xbox" Margin="0 0 20 0"/>
-            <RadioButton Content="PC"/>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0 5 0 0" >
+            <RadioButton x:Name="allRB" Content="All"  Margin="0 0 20 0" Checked="allRB_Checked"/>
+            <RadioButton x:Name="PsRB" Content="PS" Margin="0 0 20 0" Checked="PsRB_Checked"/>
+            <RadioButton x:Name="XboxRB" Content="Xbox" Margin="0 0 20 0" Checked="XboxRB_Checked"/>
+            <RadioButton x:Name="PcRB" Content="PC" Margin="0 0 20 0" Checked="PcRB_Checked"/>
+            <RadioButton x:Name="SwitchRB" Content="Switch" Checked="SwitchRB_Checked"/>
+
         </StackPanel>
     
-        <ListBox  x:Name="gameListBox" Grid.Column="0" Grid.Row="0" Grid.RowSpan="2" Width="250" Height="350" ItemTemplate="{ StaticResource listbox }" ></ListBox>
-        <TextBlock FontSize="20"  x:Name="priceTBL" Grid.Column="1" Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center"> </TextBlock>
+        <ListBox  x:Name="gameListBox" Grid.Column="0" Grid.Row="0" Grid.RowSpan="2" Width="250" Height="350" ItemTemplate="{ StaticResource listbox }" SelectionChanged="gameListBox_SelectionChanged"  ></ListBox>
+        <TextBlock  FontSize="20"  x:Name="priceTBL" Grid.Column="1" Grid.Row="0" HorizontalAlignment="Center" Margin="0 40 0 0"> </TextBlock>
+        
+        <TextBlock  FontSize="20"  x:Name="PlatTBL" Grid.Column="1" Grid.Row="0" HorizontalAlignment="Center"  Margin="0 80 0 0"></TextBlock>
+            <TextBlock  VerticalAlignment="Center"  MaxWidth="400" TextAlignment="Left" TextWrapping="Wrap"  FontSize="16"  x:Name="DesTBL" Grid.Column="1" Grid.Row="1" HorizontalAlignment="Center" ></TextBlock>
+
+        
+
     </Grid>
 </Window>
